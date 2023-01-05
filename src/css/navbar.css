@@ -1,0 +1,15 @@
+.nav-item{
+    align-self: center;
+}
+
+.search-bar{
+    margin-right: 10vw;
+}
+
+.search-field{
+    width: 400px;
+}
+
+.wishlist{
+    margin-right: 3rem;
+}

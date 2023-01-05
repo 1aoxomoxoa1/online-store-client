@@ -1,0 +1,18 @@
+.shoes{
+    margin: 10px 0px;
+    height: 40vh;
+    width: 100vw;
+    background-color: red;
+    background-image: url('../images/shoes.png');
+
+}
+
+.body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.carousel-container{
+    position: relative;
+    width: 60vw;
+    margin: 0 auto;
+}
