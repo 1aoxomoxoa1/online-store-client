@@ -1,0 +1,18 @@
+.table{
+    width: 100%;
+}
+
+.table-head *{
+    color: lightgray;
+    opacity: 80%;
+}
+
+.product-img{ 
+    width: 60px;
+    height: 60px;
+}
+
+tr > td {
+    text-align: center;
+    vertical-align: middle;
+}

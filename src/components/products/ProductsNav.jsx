@@ -4,9 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { clickFilter, clickSort } from '../../api/product-nav.js';
+import { clickFilter, clickSort, searchProduct } from '../../api/product-nav.js';
 
-function ProductsNav({setSort, setFilter}) {
+function ProductsNav({setSort, setFilter, setSearch}) {
 
   return (
     <Navbar bg="light" expand="lg">
@@ -51,7 +51,7 @@ function ProductsNav({setSort, setFilter}) {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" onClick={(event) => searchProduct(event, setSearch)}>Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

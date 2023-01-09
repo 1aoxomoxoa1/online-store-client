@@ -16,21 +16,27 @@ function ProductsPage(){
     const [filter, setFilter] = useState("all");
     const [sort, setSort] = useState("none");
     const [page, setPage] = useState(0);
+    const [search, setSearch] = useState("");
+
     const [productsShown, setProductsShown] = useState([]);
-    const [wishListItems, setWishListItems] = useState([])
+    const [wishListItems, setWishListItems] = useState([]);
     const [modalShow, setModalShow] = useState(false);
 
 
+    //this function is called each time one of state variables (search queries) changes
     async function getProducts(){
-        let products = await getProductsDb(page, filter, sort);
+        console.log(`search param in getProducts() --> ${search}`);
+        let products = await getProductsDb(page, filter, sort, search);
+        console.log(products);
         setProductsShown(products);
     }
 
-    //call initializeProducts() when page loads first, setting the products shown
+    //call getProducts() when page loads first, setting the products shown
     useEffect(() => {
         getProducts();
         getWishlistProductsDb(setWishListItems);
-    }, [page, filter, sort])
+        console.log('call to get products completed');
+    }, [page, filter, sort, search])
 
     useEffect(() => {
         getProducts();
@@ -41,7 +47,7 @@ function ProductsPage(){
             <NavBar> </NavBar>
             <h2 style={{margin: "2%"}}> PRODUCTS </h2>
             <div className="products-container"> 
-            <ProductsNav setSort={setSort} setFilter={setFilter}> </ProductsNav>
+            <ProductsNav setSort={setSort} setFilter={setFilter} setSearch={setSearch}> </ProductsNav>
             
             <div className="flex-container"> 
                 {productsShown.map((product) => 
