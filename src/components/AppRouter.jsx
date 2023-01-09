@@ -4,7 +4,7 @@ import HomePage from './home/HomePage';
 import ProductDetailsPage from './products/ProductDetailsPage';
 import ProductsPage from './products/ProductsPage';
 import ProfilePage from './login-register-profile/ProfilePage';
-import Wishlist from './Wishlist';
+import Wishlist from './wishlist/Wishlist';
 
 function AppRouter(){ 
     return( 

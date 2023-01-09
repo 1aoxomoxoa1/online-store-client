@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export async function getProductsDb(page, filter, sort){
-    const response = await axios.get(`http://localhost:3200/products?page=${page}&filter=${filter}&sort=${sort}`);
+export async function getProductsDb(page, filter, sort, search){
+    const response = await axios.get(`http://localhost:3200/products?page=${page}&filter=${filter}&sort=${sort}&search=${search}`);
     return response.data;
 }
 
@@ -21,6 +21,18 @@ export async function getWishlistProductsDb(setWishListItems){
         setWishListItems(items);
     }
 }
+
+// export function checkSessionStorage(){
+//     let search = sessionStorage.getItem("search");
+//     console.log(search);
+
+//     if(search !== null){
+//         // sessionStorage.removeItem("search");
+//         return search;
+//     }
+
+//     return "";
+// }
 
 
 export function handlePagination(event, page, setPage){

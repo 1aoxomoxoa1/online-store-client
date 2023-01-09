@@ -16,8 +16,13 @@ export function clickFilter(event, setFilter){
 
     //if its not the dropdown
     if(id !== "navbarScrollingDropdown"){
-      let filter = filterMap.get(id)
+      let filter = filterMap.get(id);
       setFilter(filter);
     }
   }
+
+export function searchProduct(event, setSearch){
+  let searchQuery = event.target.form[0].value; 
+  setSearch(searchQuery);
+}
 
