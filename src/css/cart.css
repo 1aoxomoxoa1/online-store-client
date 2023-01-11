@@ -1,0 +1,26 @@
+.flex{
+    display: flex;
+    width: 90%;
+    margin: 5% auto;
+}
+
+.left-flex{
+    flex-basis: 25%;
+    align-self: center;
+}
+
+.cart-img{
+    max-width: 100%;
+    /* height: 20vh; */
+
+}
+
+.right-flex{
+    flex-basis: 75%;
+}
+
+.total-div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;   
+}

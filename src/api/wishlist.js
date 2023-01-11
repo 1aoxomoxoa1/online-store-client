@@ -54,5 +54,18 @@ export async function removeFromWishList2(userId, productId, wishlist, setWishli
     console.log(newWishlist);
     console.log('deleted')
     setWishlist(newWishlist);
+}
 
+export async function addWishlistItemToCart(userId, productId, setCartModalShow){
+  const quantity = 1; 
+
+  let response = await axios.post('http://localhost:3200/cart', 
+      {
+          userId: userId,
+          productId: productId,
+          quantity: quantity
+      }
+  );
+  console.log(response);
+  setCartModalShow(true);
 }

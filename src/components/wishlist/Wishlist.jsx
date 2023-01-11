@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import '../../css/wishlist.css'
 import WishlistItem from "./WishlistItem";
+import WishlistHeart from '../../images/active_wishlist.png'
+import AddedToCartModal from "../modals/AddedToCartModal";
+
 
 function Wishlist(){
 
@@ -11,6 +14,7 @@ function Wishlist(){
 
     const [loggedInId, setIsLoggedIn] = useState("");
     const [wishlist, setWishlist] = useState([]);
+    const [cartModalShow, setCartModalShow] = useState(false);
     
     async function getWishlistProducts(id){
         let wishlistProducts = await axios.get(`http://localhost:3200/wishlist/${id}`);
@@ -43,7 +47,8 @@ function Wishlist(){
             </div>
             :
             <div className="wishlist-container"> 
-                <h1 style={{margin: "2%"}}> Wishlist </h1>
+                <img src={WishlistHeart} alt="wishlist-logo" width={"5%"} height={"5%"} style={{margin: "1%"}}/>
+                <h1 style={{margin: "1%"}}> Wishlist </h1>
                 {wishlist.length === 0
                 ? <h2> Nothing in wishlist </h2>
                 :
@@ -66,11 +71,14 @@ function Wishlist(){
                                         key={item.ID}
                                         setWishlist={setWishlist} 
                                         wishlist={wishlist}
+                                        setCartModalShow={setCartModalShow}
                                     /> 
                                 )
                             }
                         </tbody> 
                     </table>
+                    <AddedToCartModal show={cartModalShow} onHide={() => setCartModalShow(false)}> 
+                    </AddedToCartModal>
                 </div>
                 }
               
