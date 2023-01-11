@@ -36,17 +36,10 @@ function NavBar(props) {
             </Nav.Link>
           </Nav>
           <Form className="d-flex">
-            {/* <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2 search-field"
-              aria-label="Search"
-            />
-            <Button variant="outline-success" className='search-bar' onClick={(event) => searchProductFromAnywhere(event, navigate)}>Search</Button> */}
             <Nav.Link className='nav-item wishlist' href="/wishlist"> 
                 <img src={wishList} alt="wishlist" width={"50px"} height={"50px"}/>
             </Nav.Link>
-            <Nav.Link className='nav-item' href="/products"> 
+            <Nav.Link className='nav-item' href="/cart"> 
                 <img src={cart} alt="cart" width={"50px"} height={'50px'} />
             </Nav.Link>
           </Form>

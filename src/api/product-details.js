@@ -9,3 +9,11 @@ export  async function getProductDetails(setProductDetails){
     console.log(response);
     setProductDetails(response.data[0]);
 }
+
+//this handles the state of quantity when it is changed from the dropdown
+export function quantityChange(event, setQuantity){ 
+    let selectedIndex = event.target.options.selectedIndex;
+    let quantity = Number((event.target.options[selectedIndex].innerText));
+    setQuantity(quantity);
+}
+

@@ -5,7 +5,7 @@ import '../../css/productspage.css'
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import Pagination from 'react-bootstrap/Pagination';
-import LoginModal from "../LoginModal";
+import LoginModal from "../modals/LoginModal";
 import {getProductsDb, getWishlistProductsDb, handlePagination} from '../../api/products.js'
 
 function ProductsPage(){
@@ -25,7 +25,6 @@ function ProductsPage(){
 
     //this function is called each time one of state variables (search queries) changes
     async function getProducts(){
-        console.log(`search param in getProducts() --> ${search}`);
         let products = await getProductsDb(page, filter, sort, search);
         console.log(products);
         setProductsShown(products);

@@ -12,7 +12,7 @@ function LoginModal(props) {
       <Modal.Body>
         <h4>Please Log In!</h4>
         <p>
-          You can't add to wishlist without being logged in! Please login in <a href='/profile'> here </a>
+          You can't do this without being logged in! Please login in <a href='/profile'> here </a>
         </p>
       </Modal.Body>
       <Modal.Footer>
