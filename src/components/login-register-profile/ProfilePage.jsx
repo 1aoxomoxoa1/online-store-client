@@ -41,7 +41,7 @@ function ProfilePage(){
             }
             console.log(response)
         });
-    }, [isLoggedIn])
+    }, [isLoggedIn]);
 
 
     function handleClick(event){
