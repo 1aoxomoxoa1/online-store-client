@@ -1,0 +1,15 @@
+.edit-form-holder{
+    width: 90%;
+    margin: 3% auto;
+}
+
+.flex-buttons{
+    display: flex;
+    width: 90%;
+    margin: 2% auto;
+    justify-content: space-evenly;
+}
+
+.flex-buttons > *{
+    width: 200px;
+}

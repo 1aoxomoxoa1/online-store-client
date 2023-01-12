@@ -3,18 +3,19 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardTitle, MDBCardText, MDBCa
 import {Button} from 'react-bootstrap'
 import '../../css/userprofile.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function UserProfile({user, setIsLoggedIn}) {  
 
   function signout(){
     axios.get('http://localhost:3200/logout')
       .then(response => {
-        console.log('within')
-        console.log(response);
         setIsLoggedIn(false);
-        console.log(setIsLoggedIn);
     });
   }
+
+  const navigate = useNavigate();
+
 
   return (
     <div className="vh-100" style={{ backgroundColor: '#F4F4F4' }}>
@@ -35,7 +36,7 @@ export default function UserProfile({user, setIsLoggedIn}) {
                     <MDBCardTitle> Welcome, {user.fname} {user.lname} </MDBCardTitle>
                     <MDBCardText> {user.email} </MDBCardText>
                     <div className="d-flex-wrap pt-1">
-                      <Button className="w-100 cls-button">Edit</Button>
+                      <Button className="w-100 cls-button" onClick={() => navigate('/edit')} >Edit</Button>
                       <Button className="w-100 cls-button" onClick={signout}>Sign out</Button>
                     </div>
                   </div>
