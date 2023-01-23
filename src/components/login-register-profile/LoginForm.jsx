@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import '../../css/loginform.css';
 import axios from "axios"; 
 import React, { useState } from "react";
-
+import { handleForgotPassword } from '../../api/login.js';
 
 
 function LoginForm(props){
@@ -57,7 +57,10 @@ function LoginForm(props){
                 <Form.Group className='mb-3' controlId="message"> 
                     <Form.Label className='failed-login'> {loginStatus} </Form.Label>
                 </Form.Group>
-                <Button type="submit" variant='primary'> Login </Button>
+                <div className='buttons-div'> 
+                    <Button variant='warning' onClick={() => handleForgotPassword(props.setModalShow)}> Forgot Password</Button>
+                    <Button type="submit" variant='primary'> Login </Button>
+                </div>
             </Form>
         </div>
         
