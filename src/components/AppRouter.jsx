@@ -7,6 +7,7 @@ import ProfilePage from './login-register-profile/ProfilePage';
 import Wishlist from './wishlist/Wishlist';
 import Cart from './cart/Cart';
 import EditProfilePage from './login-register-profile/EditProfilePage';
+import ChangePasswordPage from './login-register-profile/ChangePassword';
 
 function AppRouter(){ 
     return( 
@@ -19,6 +20,7 @@ function AppRouter(){
                 <Route path='/products/:id' element={<ProductDetailsPage/>} /> 
                 <Route path='/wishlist' element={<Wishlist/>} /> 
                 <Route path='/cart' element={<Cart/> } /> 
+                <Route path='/forgotpassword' element={<ChangePasswordPage/> } /> 
             </Routes>
         </BrowserRouter>
     )

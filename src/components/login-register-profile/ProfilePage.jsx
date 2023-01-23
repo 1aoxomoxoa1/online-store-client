@@ -6,6 +6,7 @@ import '../../css/profilepage.css';
 import shoeImage from '../../images/adidas.png';
 import { useEffect, useState } from "react";
 import axios from "axios"; 
+import ForgotPassModal from "../modals/ForgotPassModal";
 
 function ProfilePage(){
 
@@ -21,6 +22,9 @@ function ProfilePage(){
 
     //state for user information
     const [user, setUser] = useState({});
+
+    //modal if user forgets password
+    const [modalShow, setModalShow] = useState(false);
 
     useEffect(() => {
         axios.get("http://localhost:3200/login").then(response => {
@@ -84,13 +88,14 @@ function ProfilePage(){
                         </h3>
                     </div>
                         {formState === 'login'
-                        ? <LoginForm setIsLoggedIn={setIsLoggedIn}> </LoginForm>
+                        ? <LoginForm setIsLoggedIn={setIsLoggedIn} setModalShow={setModalShow}> </LoginForm>
                         : <RegisterForm setIsLoggedIn={setIsLoggedIn}> </RegisterForm>
                         }
                     </>
                 }
                     
                 </div>
+                <ForgotPassModal show={modalShow} onHide={() => setModalShow(false)}></ForgotPassModal>              
             </div> 
             }
         </div>

@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//this gets the product details for a certain id of a product
 export  async function getProductDetails(setProductDetails){
     console.log('entered product details page');
     let url = window.location.href;
