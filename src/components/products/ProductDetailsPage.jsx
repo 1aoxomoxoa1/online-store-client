@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import NavBar from "../NavBar";
 import '../../css/productdetailpage.css';
 import { Button } from "react-bootstrap";
-import { getProductDetails, quantityChange } from "../../api/product-details";
+import { getProductDetails, quantityChange, handleAddToCart } from "../../api/product-details";
 import axios from "axios";
 import LoginModal from "../modals/LoginModal";
 import AddedToCartModal from "../modals/AddedToCartModal";
@@ -21,25 +21,6 @@ function ProductDetailsPage(props){
 
     console.log(productDetails);
 
-    async function handleAddToCart(id, quantity=1){
-        let loginResponse = await axios.get("http://localhost:3200/login");
-        if(loginResponse.data.loggedIn === false){
-            setLoginModalShow(true);
-        }else{ //if the user is loggedIn
-            let userId = Number(loginResponse.data.user[0].ID)
-            let productId = Number(id);
-            console.log(quantity);
-
-            let response = await axios.post('http://localhost:3200/cart', 
-                {
-                    userId: userId,
-                    productId: productId,
-                    quantity: quantity
-                }
-            );
-            setCartModalShow(true);
-        }
-    }
 
     return(
         <>
@@ -71,7 +52,7 @@ function ProductDetailsPage(props){
                                 <option value="6">6</option>
                                 <option value="7">7</option>
                             </select>
-                            <Button variant="primary" style={{width: "50%"}} onClick={() => handleAddToCart(productDetails.ID, quantity)}> Add to Cart </Button>
+                            <Button variant="primary" style={{width: "50%"}} onClick={() => handleAddToCart(productDetails.ID, quantity, setLoginModalShow, setCartModalShow)}> Add to Cart </Button>
                         </div> 
                     </div>
                     <LoginModal show={loginModalShow} onHide={() => setLoginModalShow(false)}>
