@@ -23,7 +23,7 @@ function LoginForm(props){
         let password = form.password.value;
         console.log(email);
 
-        axios.post("http://localhost:3200/login", 
+        axios.post(`${process.env.REACT_APP_SERVER_ROUTE}/login`, 
             {
                 email: email,
                 password: password

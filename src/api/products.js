@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function getProductsDb(page, filter, sort, search){
-    const response = await axios.get(`http://localhost:3200/products?page=${page}&filter=${filter}&sort=${sort}&search=${search}`);
+    const response = await axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/products?page=${page}&filter=${filter}&sort=${sort}&search=${search}`);
     return response.data;
 }
 
@@ -10,12 +10,12 @@ export async function getProductsDb(page, filter, sort, search){
 //  * @param {*} setWishListItems -- setter for the wishlistItems state tracking wishlist for a logged in user
 //  */
 export async function getWishlistProductsDb(setWishListItems){
-    const userResponse = await axios.get("http://localhost:3200/login");
+    const userResponse = await axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/login`);
     if(userResponse.data.loggedIn === false){
        return
     }else{ 
         let userId = userResponse.data.user[0].ID;
-        const wishListResponse = await axios.get(`http://localhost:3200/wishlist/${userId}`);
+        const wishListResponse = await axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/wishlist/${userId}`);
         let items = wishListResponse.data.map(item => item.product_id);
         console.log(items);
         setWishListItems(items);

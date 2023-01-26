@@ -22,7 +22,7 @@ function RegisterForm(props){
         let password = form.password.value;
         let profilePic = form.profilePic.value; 
 
-        axios.post("http://localhost:3200/register", 
+        axios.post(`${process.env.REACT_APP_SERVER_ROUTE}/register`, 
             {
                 fname: fname, 
                 lname: lname,

@@ -3,7 +3,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 export async function getUserDetailsEdit(setUserDetails){
-    const user = await axios.get('http://localhost:3200/login');
+    const user = await axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/login`);
     let details = user.data.user[0];   
     console.log(details);
     setUserDetails(details);
@@ -19,7 +19,7 @@ export async function saveEditedUserDetails(event, userDetails, navigate){
     const photoUrl = form.profilePic.value; 
    
     try {
-        let response = await axios.put('http://localhost:3200/register', {
+        let response = await axios.put(`${process.env.REACT_APP_SERVER_ROUTE}/register`, {
             fname: fname,
             lname: lname,
             email: email,

@@ -12,7 +12,7 @@ export async function sendToEmail(event, setSentMsg, setEmailFound){
 
     const email = event.target.form[0].value;
 
-    const emailVerified = await axios.post('http://localhost:3200/forgotpass', 
+    const emailVerified = await axios.post(`${process.env.REACT_APP_SERVER_ROUTE}/forgotpass`, 
         {
             email: email
         }
