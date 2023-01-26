@@ -18,3 +18,22 @@ export function quantityChange(event, setQuantity){
     setQuantity(quantity);
 }
 
+export async function handleAddToCart(id, quantity=1, setLoginModalShow, setCartModalShow){
+    let loginResponse = await axios.get("http://localhost:3200/login");
+    if(loginResponse.data.loggedIn === false){
+        setLoginModalShow(true);
+    }else{ //if the user is loggedIn
+        let userId = Number(loginResponse.data.user[0].ID)
+        let productId = Number(id);
+        console.log(quantity);
+
+        let response = await axios.post('http://localhost:3200/cart', 
+            {
+                userId: userId,
+                productId: productId,
+                quantity: quantity
+            }
+        );
+        setCartModalShow(true);
+    }
+}
