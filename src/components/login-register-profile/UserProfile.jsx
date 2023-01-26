@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 export default function UserProfile({user, setIsLoggedIn}) {  
 
   function signout(){
-    axios.get('http://localhost:3200/logout')
+    axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/logout`)
       .then(response => {
         setIsLoggedIn(false);
     });

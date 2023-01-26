@@ -37,7 +37,7 @@ function Cart(){
 
     //fetch the cart from DB when the page loads
     useEffect(() => {
-        axios.get("http://localhost:3200/login").then(response => {
+        axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/login`).then(response => {
             if(response.data.loggedIn){
                 setUser(response.data.user[0]);
                 getUsersCart(response.data.user[0].ID);

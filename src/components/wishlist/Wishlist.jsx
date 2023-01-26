@@ -17,9 +17,9 @@ function Wishlist(){
     const [cartModalShow, setCartModalShow] = useState(false);
     
     async function getWishlistProducts(id){
-        let wishlistProducts = await axios.get(`http://localhost:3200/wishlist/${id}`);
+        let wishlistProducts = await axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/wishlist/${id}`);
         let ids = wishlistProducts.data.map(object => object.product_id);
-        let products = await axios.post(`http://localhost:3200/products`, {
+        let products = await axios.post(`${process.env.REACT_APP_SERVER_ROUTE}/products`, {
             range: ids
         });
         console.log(products.data);
@@ -27,7 +27,7 @@ function Wishlist(){
     }
 
     useEffect(() => {
-        axios.get("http://localhost:3200/login").then(response => {
+        axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/login`).then(response => {
             if(response.data.loggedIn){
                 let id = response.data.user[0].ID;
                 setIsLoggedIn(id);

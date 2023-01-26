@@ -6,7 +6,7 @@ export  async function getProductDetails(setProductDetails){
     let url = window.location.href;
     const re = new RegExp('http://localhost:3000/products/');
     let productId = url.replace(re, "");
-    let response = await axios.get(`http://localhost:3200/products/${productId}`);
+    let response = await axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/products/${productId}`);
     console.log(response);
     setProductDetails(response.data[0]);
 }
@@ -19,7 +19,7 @@ export function quantityChange(event, setQuantity){
 }
 
 export async function handleAddToCart(id, quantity=1, setLoginModalShow, setCartModalShow){
-    let loginResponse = await axios.get("http://localhost:3200/login");
+    let loginResponse = await axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/login`);
     if(loginResponse.data.loggedIn === false){
         setLoginModalShow(true);
     }else{ //if the user is loggedIn
@@ -27,7 +27,7 @@ export async function handleAddToCart(id, quantity=1, setLoginModalShow, setCart
         let productId = Number(id);
         console.log(quantity);
 
-        let response = await axios.post('http://localhost:3200/cart', 
+        let response = await axios.post(`${process.env.REACT_APP_SERVER_ROUTE}/cart`, 
             {
                 userId: userId,
                 productId: productId,

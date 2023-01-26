@@ -27,7 +27,7 @@ function ProfilePage(){
     const [modalShow, setModalShow] = useState(false);
 
     useEffect(() => {
-        axios.get("http://localhost:3200/login").then(response => {
+        axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/login`).then(response => {
             if(response.data.loggedIn){
                 setIsLoggedIn(true);
                 setUser(response.data.user[0]);
@@ -37,7 +37,7 @@ function ProfilePage(){
     }, [])
 
     useEffect(() => {
-        axios.get("http://localhost:3200/login").then(response => {
+        axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/login`).then(response => {
             if(response.data.loggedIn){
                 console.log("is logged in");
                 setIsLoggedIn(true);

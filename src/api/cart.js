@@ -2,7 +2,7 @@ import axios from "axios"
 
 //this function retrieves the cart products (ONLY IDS & QUANTITIES) for user id
 export async function getCartProducts(id){
-    let cartProducts = await axios.get(`http://localhost:3200/cart/${id}`);
+    let cartProducts = await axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/cart/${id}`);
     return cartProducts.data;
 }
 
@@ -20,7 +20,7 @@ function mapDetails(element, products){
 
 export async function getCartToDisplay(products){
     let productIds = products.map(item => item.product_id);
-    let cartProductsDetails = await axios.post(`http://localhost:3200/products`, 
+    let cartProductsDetails = await axios.post(`${process.env.REACT_APP_SERVER_ROUTE}/products`, 
         {
             range: productIds
         }

@@ -18,7 +18,7 @@ export async function changePassword(event, setFormMsg, email){
     //if new password is confirmed, save it to db
     if(newPass === confirmPass){
         setFormMsg("Saving new password");
-        let response = await axios.post('http://localhost:3200/changepass', 
+        let response = await axios.post(`${process.env.REACT_APP_SERVER_ROUTE}/changepass`, 
             {
                 password: newPass,
                 email: email 
