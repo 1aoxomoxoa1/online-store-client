@@ -5,6 +5,11 @@ import '../../css/home-page.css';
 
 function HomePage(){
 
+    function testing(){
+        console.log('check output from home page');
+    }
+    testing();
+
     return( 
         <> 
             <NavBar> </NavBar>
