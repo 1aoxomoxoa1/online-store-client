@@ -32,6 +32,7 @@ function ProductsPage(){
 
     //call getProducts() when page loads first, setting the products shown
     useEffect(() => {
+        console.log('entered products page');
         getProducts();
         getWishlistProductsDb(setWishListItems);
         console.log('call to get products completed');
