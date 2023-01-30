@@ -1,6 +1,8 @@
 import axios from "axios";
 
 export async function getProductsDb(page, filter, sort, search){
+    console.log('calling products ');
+    console.log(`${process.env.REACT_APP_SERVER_ROUTE}`);
     const response = await axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/products?page=${page}&filter=${filter}&sort=${sort}&search=${search}`);
     return response.data;
 }

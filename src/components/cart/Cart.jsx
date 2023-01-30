@@ -31,7 +31,7 @@ function Cart(){
     //when the cart changes, update the total
     useEffect(() => {
         let total = calculateTotal(cart);
-        console.log('calculating total...')
+        console.log('calculating total...');
         setTotal(total);
     }, [cart])
 
