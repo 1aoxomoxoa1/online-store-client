@@ -15,8 +15,8 @@ function HomePageCarousel() {
           style={{objectFit: 'cover', objectPosition: 'center', height: "50vh", overflow: "hidden"}}
         />
         <Carousel.Caption className='caption'>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Formal Shoes</h3>
+          <p>Shop from our selection of formal shoes.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item >
@@ -27,8 +27,8 @@ function HomePageCarousel() {
           style={{objectFit: 'cover', objectPosition: 'center', height: "50vh", overflow: "hidden"}}
         />
         <Carousel.Caption className='caption'>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Athletic Shoes</h3>
+          <p>Shop from our selection of athletic shoes to get your blood pumping</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -41,9 +41,9 @@ function HomePageCarousel() {
         />
 
         <Carousel.Caption className='caption'>
-          <h3>Third slide label</h3>
+          <h3>Sports</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Shop from our assortment of shoes for soccer and other sports.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
