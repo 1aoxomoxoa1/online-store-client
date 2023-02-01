@@ -33,12 +33,17 @@ function RegisterForm(props){
         .then((response) => {
             setRegisterMsg(response.data);
             registerPar.current.hidden = false;
+                if(response.data === "Account already made with this email"){
+                    registerPar.current.className = 'register-msg-bad';
+                }else{
+                    registerPar.current.className = 'register-msg-good'
+                }
         });        
     }
 
     return(
         <div className='register-form-holder'> 
-            <p hidden={true} ref={registerPar} className="register-msg"> {registerMsg} </p> 
+            <p hidden={true} ref={registerPar}> {registerMsg} </p> 
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="fname">
                     <Form.Label className='fname'>First Name </Form.Label>

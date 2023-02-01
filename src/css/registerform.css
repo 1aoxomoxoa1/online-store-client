@@ -11,7 +11,12 @@
     margin-bottom: 20px;
 }
 
-.register-msg{
+.register-msg-good{
     color: #228B22;
+    font-size: 1.5em;
+}
+
+.register-msg-bad{
+    color: red;
     font-size: 1.5em;
 }
