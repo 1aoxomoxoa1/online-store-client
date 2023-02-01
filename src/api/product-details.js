@@ -6,6 +6,8 @@ export  async function getProductDetails(setProductDetails){
     let url = window.location.href;
     const re = new RegExp('http://localhost:3000/products/');
     let productId = url.replace(re, "");
+    console.log('re below');
+    console.log(re);
     let response = await axios.get(`${process.env.REACT_APP_SERVER_ROUTE}/products/${productId}`);
     console.log(response);
     setProductDetails(response.data[0]);
