@@ -4,7 +4,9 @@ import axios from "axios";
 export  async function getProductDetails(setProductDetails){
     console.log('entered product details page');
     let url = window.location.href;
-    const re = new RegExp('http://localhost:3000/products/');
+    console.log(`${process.env.REACT_APP_FRONT_END_URL_PRODUCTS}`);
+    console.log(`${process.env.REACT_APP_SERVER_ROUTE}`);
+    const re = new RegExp(`${process.env.REACT_APP_FRONT_END_URL_PRODUCTS}`);
     let productId = url.replace(re, "");
     console.log('re below');
     console.log(re);
