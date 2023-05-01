@@ -52,7 +52,7 @@ function LoginForm(props){
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="password">
                     <Form.Label className='password'>Password</Form.Label>
-                    <Form.Control type="text"/>
+                    <Form.Control type="password"/>
                 </Form.Group>
                 <Form.Group className='mb-3' controlId="message"> 
                     <Form.Label className='failed-login'> {loginStatus} </Form.Label>
